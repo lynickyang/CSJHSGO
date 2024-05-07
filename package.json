@@ -13,7 +13,6 @@
     "@popperjs/core": "^2.11.8",
     "@vueuse/core": "^10.9.0",
     "bootstrap": "^5.3.3",
-    "bulma": "^1.0.0",
     "firebase": "^10.11.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
