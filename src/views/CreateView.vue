@@ -116,8 +116,8 @@
   console.log("檢查傳入值isNew",CE)
     // console.log("檢查傳入值item",item)
   if (CE === true) {
-    console.log("呼叫新增")
-    this.tempProduct = {};
+    console.log("呼叫新增",tempProduct.vulue)
+    tempProduct.value = {};
   } else {
     console.log("呼叫編輯")
     tempProduct.value = { ...item };
