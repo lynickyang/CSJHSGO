@@ -1,14 +1,13 @@
 import { defineStore } from 'pinia'
 import {db} from '../js/firebase'
 
-import { collection, onSnapshot,doc,
+import { collection, onSnapshot,getDocs,
    deleteDoc,updateDoc,addDoc,
    query, orderBy} from 'firebase/firestore';
    
 
 // notesCollectionRef = collection(db,'products',this.setId,'message')
 // notesCollectionQueryRef = query(notesCollectionRef , orderBy('date', 'desc'))
-
 
 
 export const useStoreNotes = defineStore('storeNotes', {
@@ -20,18 +19,31 @@ export const useStoreNotes = defineStore('storeNotes', {
     }
   },
   actions: {
-    
-    setdbId(id){
-      // console.log("觸發setdbIdstore")
-      this.setId= id
-      // console.log("after set this.setId:",this.setId)
-      this.getNotes()
-      // setTimeout(() => {
-      // }, 2000);
-
+    SetIdKey(id){
+      // console.log("觸發store Setkey")
+      this.setId = id;
+      // console.log("抓到的ＩＤ：",this.setId)
+      this.getNotes();
     },
 
     async getNotes(){
+      // console.log("觸發getNotes")
+      const querySnapshot = await getDocs(query(collection(db,'products',this.setId,'message'), orderBy('date', 'desc')));
+      let notes=[];
+      querySnapshot.forEach((doc) => {
+        let note={
+          id:doc.id,
+          content:doc.data().content,
+          date:doc.data().date
+          } 
+        notes.push(note)
+      })
+      this.notes=notes
+      console.log("this.notes",this.notes)
+    },
+
+    async getNotesAnyTime(){
+
       onSnapshot(query(collection(db,'products',this.setId,'message'), orderBy('date', 'desc')), (querySnapshot) => {
         let notes = [];
         querySnapshot.forEach((doc) => {
@@ -54,17 +66,19 @@ export const useStoreNotes = defineStore('storeNotes', {
         content:newNoteContent,
         date
       });
-
+      this.getNotes();
     },
     async deleteNote(idToDelete) {
       console.log("觸發delete",idToDelete)
       await deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
+      this.getNotes();
     },
 
     async updateNote(id, content) {
       await updateDoc(doc(collection(db,'products',this.setId,'message'),id), {
         content
       });
+      this.getNotes();
     }
   },
   getters: {
