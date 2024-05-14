@@ -29,14 +29,14 @@ function setId(id) {
             <p class="card-text text-area">{{ item.description }}</p>
           </div>
           <div class="card-footer">
-            <button class="btn" @click="setId(item.id)">
+            <!-- <button class="btn" @click="setId(item.id)"> -->
               <RouterLink
                 class="btn btn-primary"
                 :to="{ name: 'item', params: { id: item.id } }"
               >
                 進入留言
               </RouterLink>
-            </button>
+            <!-- </button> -->
           </div>
         </div>
       </div>

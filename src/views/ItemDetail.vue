@@ -43,13 +43,14 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <h1 class="mt-5">card</h1>
-  <div class="card pt-5" style="width: 18rem">
-    <img :src="item.image" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.description }}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+ <div class="container-md">
+      <img class="img-fluid" :src="item.image" :alt="item.name"  />
+<!-- 顯示資料movie -->
+    <div>
+      <h1 class="mb-4 text-5xl">{{ item.name }}</h1>
+      <div class="mb-3 movie-item-genres-wrapper">
+      </div>
+      <p class="text-xl">{{ item.description }}</p>
     </div>
   </div>
 

@@ -10,9 +10,9 @@ const useFBstore = useFirebaseStore()
 import { useStoreNotes } from './stores/storeNotes';
 const storeNotes= useStoreNotes()
 
-// onMounted(()=>{
-//   useFBstore.getProducts()
-// })
+onMounted(()=>{
+  useFBstore.getProducts()
+})
 
 </script>
 

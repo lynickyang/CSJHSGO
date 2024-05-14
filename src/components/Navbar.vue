@@ -2,7 +2,7 @@
   <!-- <ChildComponent /> -->
   <nav class="navbar navbar-expand-lg bg-success fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand text-light" href="#">食農ＩＮ中和</a>
+      <a class="navbar-brand text-light" href="#">思源食堂</a>
       <button
         class="navbar-toggler"
         type="button"
