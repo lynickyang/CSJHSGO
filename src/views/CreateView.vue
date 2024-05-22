@@ -128,9 +128,9 @@
 }
 
   function updateProduct(item) {
-    console.log("觸發updataProduct")
-    console.log("傳入資料：",item)
-    console.log("isNew是什麼",isNew.value)
+    // console.log("觸發updataProduct")
+    // console.log("傳入資料：",item)
+    // console.log("isNew是什麼",isNew.value)
     if(isNew.value == true){
       console.log("觸發更新傳入的值：",item)
       tempProduct.value = item;

@@ -1,25 +1,12 @@
 <template>
-  <div class="edit-note ">
-    <h1>{{ noteContent }}</h1>
-    <AddEditNote
-      v-model="noteContent"
-      bgColor="link"
-      placeholder="Edit note"
-      label="Edit Note"
-      ref="addEditNoteRef"
-    >
+  <div class="container-md mt-5">
+    <h1>編輯</h1>
+    <AddEditNote v-model="noteContent" bgColor="link" placeholder="Edit note" label="Edit Note" ref="addEditNoteRef">
       <template #buttons>
-        <button
-          @click="$router.back()"
-          class="button is-link is-light mr-2"
-        >
+        <button @click="$router.back()" class="btn btn-secondary me-2">
           取消
         </button>
-        <button
-          @click="handleSaveClicked"
-          class="button is-link has-background-link"
-          :disabled="!noteContent"
-        >
+        <button @click="handleSaveClicked" class="btn btn-primary" :disabled="!noteContent">
           保存
         </button>
       </template>

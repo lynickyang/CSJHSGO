@@ -16,7 +16,7 @@ function setId(id) {
 
   <div class="container-xxl mt-5 mb-5">
     <div class="row" pt-5>
-      <div class="col-xxl-4 col-md-6" v-for="item in useFBstore.products" :key="item.id">
+      <div class="col-xl-4 col-md-6" v-for="item in useFBstore.products" :key="item.id">
         <div class="card mb-4">
           <RouterLink
             class="overflow-hidden"

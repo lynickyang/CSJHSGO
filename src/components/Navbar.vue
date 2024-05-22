@@ -1,6 +1,6 @@
 <template>
   <!-- <ChildComponent /> -->
-  <nav class="navbar navbar-expand-lg bg-success fixed-top">
+  <nav class="navbar navbar-expand-lg bg-success">
     <div class="container-fluid">
       <a class="navbar-brand text-light" href="#">思源食堂</a>
       <button

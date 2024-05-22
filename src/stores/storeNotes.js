@@ -2,9 +2,8 @@ import { defineStore } from 'pinia'
 import {db} from '../js/firebase'
 
 import { collection, onSnapshot,getDocs,
-   deleteDoc,updateDoc,addDoc,
-   query, orderBy} from 'firebase/firestore';
-   
+  deleteDoc,updateDoc,addDoc,doc,
+  query, orderBy} from 'firebase/firestore';
 
 // notesCollectionRef = collection(db,'products',this.setId,'message')
 // notesCollectionQueryRef = query(notesCollectionRef , orderBy('date', 'desc'))
@@ -39,7 +38,7 @@ export const useStoreNotes = defineStore('storeNotes', {
         notes.push(note)
       })
       this.notes=notes
-      console.log("this.notes",this.notes)
+      // console.log("this.notes",this.notes)
     },
 
     async getNotesAnyTime(){
@@ -68,9 +67,10 @@ export const useStoreNotes = defineStore('storeNotes', {
       });
       this.getNotes();
     },
-    async deleteNote(idToDelete) {
+
+    deleteNote(idToDelete) {
       console.log("觸發delete",idToDelete)
-      await deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
+      deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
       this.getNotes();
     },
 

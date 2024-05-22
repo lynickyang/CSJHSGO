@@ -1,7 +1,6 @@
 <script setup>
-//如果網址變動要重新取得遠端檔案。
-
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount,watch } from "vue";
+import { useRoute } from 'vue-router'
 import Note from "../components/notes/Note.vue";
 import AddEditNote from "../components/notes/AddEditNote.vue";
 import { useWatchCharacters } from "../use/useWatchCharacters";
@@ -11,13 +10,21 @@ import { useStoreNotes } from '../stores/storeNotes'
 const storeNotes = useStoreNotes()
 const props = defineProps(["id"]);
 const item = ref({});
+const route = useRoute()
+
+watch(
+  () => route.params.id,
+  (ID)=> {
+    // console.log("idkey", ID)
+    location.reload()
+  }
+)
 
 async function getItemData() {
-  const docRef = doc(db, "products", props.id);
+  const docRef = doc(db, "products", route.params.id);
   const itemData = await getDoc(docRef);
   item.value = itemData.data();
 }
-
 const newNote = ref("");
 const addEditNoteRef = ref(null);
 
@@ -27,25 +34,23 @@ const addNote = () => {
   addEditNoteRef.value.focusTextarea();
 };
 
+const showid = ()=>{
+  console.log("storeNotes.notes", storeNotes.notes[0].id)
+}
+
 useWatchCharacters(newNote);
 
 onBeforeMount(() => {
   getItemData();
-  storeNotes.SetIdKey(props.id)
+  storeNotes.SetIdKey(route.params.id)
 });
 
-// //從網址抓id,找出資料,指定給movie
-// function getItemData(){
-//   setTimeout(() => {
-//     item = itemData.value.find((m) => m.id === storeNotes.setId);
-//   }, 3000);
-// }
 </script>
 
 <template>
- <div class="container-md">
+<div class="container-md">
       <img class="img-fluid" :src="item.image" :alt="item.name"  />
-<!-- 顯示資料movie -->
+<!-- 顯示資料 -->
     <div>
       <h1 class="mb-4 text-5xl">{{ item.name }}</h1>
       <div class="mb-3 movie-item-genres-wrapper">
@@ -56,18 +61,22 @@ onBeforeMount(() => {
 
   <!-- 留言板 -->
   <div class="container-md">
+    <!-- <button @click="showid">
+      顯示id
+    </button> -->
+
     <AddEditNote v-model="newNote" placeholder="留言區" ref="addEditNoteRef">
       <template #buttons>
         <button
           @click="addNote"
           :disabled="!newNote"
-          class="btn btn-light text-success"
+          class="btn btn-success"
         >
           新增紀錄
         </button>
       </template>
     </AddEditNote>
 
-    <Note v-for="note in storeNotes.notes" :key="props.id" :note="note" />
+    <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" />
   </div>
 </template>

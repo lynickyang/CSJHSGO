@@ -1,12 +1,6 @@
 <template>
-<div class="card mb-5">
-  <label
-        v-if="label"
-        class="text-black"
-      >
-        {{ label }}
-  </label>
-  <div class="card-body text-bg-success">
+<div class="mb-3">
+  <form class="">
     <textarea
       v-model="model"
       class="form-control "
@@ -16,10 +10,10 @@
       style="height: 140px"
       v-autofocus>   
     </textarea>
-    <div class="card-footer p-0 pt-3">
+    <div class="p-0 pt-2">
       <slot name="buttons" />
     </div>
-  </div>
+  </form>
 </div>
  
   </template>
