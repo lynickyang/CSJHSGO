@@ -29,12 +29,6 @@ import { useStoreNotes } from '../stores/storeNotes'
 const storeNotes = useStoreNotes()
 
 export default {
-  // props: {
-  //   note: {
-  //     default() {""},
-  //   },
-  // },
-
   props:['note','noteId'],
 
   watch: {
@@ -55,22 +49,10 @@ export default {
     hideModal() {
       this.modal.hide();
     },
-    // update(){
-    //   // console.log("note",this.note)
-    //   // console.log('noteId', this.noteId)
-    //   // console.log("更新訊息後:",this.tempNote)
-    //   // console.log("id",key)
-    
-    //   this.hideModal();
-    // }
 
     update(){
-      // console.log('router.params:', this.noteId)
-      // console.log('noteContent.value:', this.tempNote)
       storeNotes.updateNote(this.noteId, this.tempNote);
       this.hideModal();
-      // console.log("更新完成");
-      storeNotes.getNotes();
     }
 
   },

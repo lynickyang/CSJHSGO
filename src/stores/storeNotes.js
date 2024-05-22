@@ -41,21 +41,21 @@ export const useStoreNotes = defineStore('storeNotes', {
       // console.log("this.notes",this.notes)
     },
 
-    async getNotesAnyTime(){
+    // async getNotesAnyTime(){
 
-      onSnapshot(query(collection(db,'products',this.setId,'message'), orderBy('date', 'desc')), (querySnapshot) => {
-        let notes = [];
-        querySnapshot.forEach((doc) => {
-          let note={
-            id:doc.id,
-            content:doc.data().content,
-            date:doc.data().date
-            } 
-          notes.push(note)
-        })
-        this.notes=notes
-      })
-    },
+    //   onSnapshot(query(collection(db,'products',this.setId,'message'), orderBy('date', 'desc')), (querySnapshot) => {
+    //     let notes = [];
+    //     querySnapshot.forEach((doc) => {
+    //       let note={
+    //         id:doc.id,
+    //         content:doc.data().content,
+    //         date:doc.data().date
+    //         } 
+    //       notes.push(note)
+    //     })
+    //     this.notes=notes
+    //   })
+    // },
 
     async addNote(newNoteContent) {
       let currentDate = new Date().getTime(),
@@ -68,9 +68,10 @@ export const useStoreNotes = defineStore('storeNotes', {
       this.getNotes();
     },
 
-    deleteNote(idToDelete) {
-      console.log("觸發delete",idToDelete)
-      deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
+    async deleteNote(idToDelete) {
+      // console.log("觸發delete",idToDelete)
+      await deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
+      console.log("deleteNote")
       this.getNotes();
     },
 
@@ -78,6 +79,7 @@ export const useStoreNotes = defineStore('storeNotes', {
       await updateDoc(doc(collection(db,'products',this.setId,'message'),id), {
         content
       });
+      console.log("updateNote")
       this.getNotes();
     }
   },
