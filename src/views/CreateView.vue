@@ -55,28 +55,28 @@
 
 
   function openModal(CE, item) {
-  console.log("檢查傳入值isNew",CE)
+  // console.log("檢查傳入值isNew",CE)
     // console.log("檢查傳入值item",item)
   if (CE === true) {
     tempProduct.value = {};
-    console.log("呼叫新增",tempProduct.value)
+    // console.log("呼叫新增",tempProduct.value)
   } else {
-    console.log("呼叫編輯")
+    // console.log("呼叫編輯")
     tempProduct.value = { ...item };
-    console.log("顯示tempProduct:",tempProduct.value)
+    // console.log("顯示tempProduct:",tempProduct.value)
   }
   isNew.value = CE;
   productModal.value.showModal();
 }
 
   function updateProduct(item) {
-    console.log("觸發updataProduct")
-    console.log("傳入資料：",item)
-    console.log("isNew是什麼",isNew.value)
+    // console.log("觸發updataProduct")
+    // console.log("傳入資料：",item)
+    // console.log("isNew是什麼",isNew.value)
     if(isNew.value == true){
-      console.log("觸發更新傳入的值：",item)
+      // console.log("觸發更新傳入的值：",item)
       tempProduct.value = item;
-      console.log("設定temp為傳入的值",tempProduct.value)
+      // console.log("設定temp為傳入的值",tempProduct.value)
       // 新增
       useFBstore.addData(tempProduct.value)
     }else{
@@ -93,13 +93,13 @@
   
   function OpentDelModal(id){
     saveid=id;
-    console.log("id:",id)
+    // console.log("id:",id)
     itemModalDel.value.showModal();
     // useFBstore.deletData(id)
   }
 
 function DeleteItem(){
-  console.log("觸發成功")
+  // console.log("觸發成功")
   useFBstore.deletData(saveid)
 }
 

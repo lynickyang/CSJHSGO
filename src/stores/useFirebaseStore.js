@@ -28,7 +28,7 @@ export const useFirebaseStore = defineStore('firebaseStore', {
       })
       this.products=datas
       this.dataReady=true
-      console.log("擷取完成ready,",this.dataReady)
+      // console.log("擷取完成ready,",this.dataReady)
     },
     async getProductsAnyTime(){
       // console.log("觸發getProducts<ready:" ,this.dataReady)
@@ -45,13 +45,13 @@ export const useFirebaseStore = defineStore('firebaseStore', {
         })
         this.products=datas
         this.dataReady=true
-        console.log("擷取完成ready,",this.dataReady)
+        // console.log("擷取完成ready,",this.dataReady)
       })
     },
 
     async addData(item){
-      console.log("觸發新增")
-      console.log("傳入資料",item)
+      // console.log("觸發新增")
+      // console.log("傳入資料",item)
       let currentDate = new Date().getTime(),
       date = currentDate.toString()
 
@@ -65,18 +65,19 @@ export const useFirebaseStore = defineStore('firebaseStore', {
     },
 
     async deletData(idToDelete) {
-      console.log("storeDELETE,id:",idToDelete)
+      // console.log("storeDELETE,id:",idToDelete)
       await deleteDoc(doc(collection(db,'products'), idToDelete));
       this.getProducts();
     },
 
     async editData(content,id ) {
-      console.log("觸發store更新，資料：",content)
-      console.log("觸發store更新，id：",id)
+      // console.log("觸發store更新，資料：",content)
+      // console.log("觸發store更新，id：",id)
       await updateDoc(doc(collection(db,'products'),id), {
         id:content.id,
         name:content.name,
-        image:content.image
+        image:content.image,
+        description:content.description
       });
       this.getProducts();
     }

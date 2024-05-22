@@ -13,17 +13,25 @@
 				<img src="https://consigli.b-cdn.net/cdn/imgarticoli/iStock-533297845.jpg"
 					class="d-block w-100 img-hight" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>First slide label</h5>
-					<p>Some representative placeholder content for the first slide.</p>
+					<h2 class="fs-1 fw-bold text-shadow ">牛奶白菜</h2>
+					<h4 class="fs-3 fw-bolder text-shadow">嫩軟，富含纖維、維生素C、K和葉酸等營養素</h4>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMDQyMzAyLWltYWdlLWt3dnk1dHM4LmpwZw.jpg"
 					class="d-block w-100 img-hight" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h2 class="fs-1 fw-bold text-shadow ">香水草莓</h2>
+					<h4 class="fs-3 fw-bolder text-shadow">果皮紅中透亮，口感Q彈有勁的品種</h4>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Curcuma_longa_roots.jpg"
 					class="d-block w-100 img-hight" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h2 class="fs-1 fw-bold text-shadow ">薑黃</h2>
+					<h4 class="fs-3 fw-bolder text-shadow">橙黃色，料理添加物，營養補給食品</h4>
+				</div>
 			</div>
 		</div>
 		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

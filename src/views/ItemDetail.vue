@@ -34,9 +34,6 @@ const addNote = () => {
   addEditNoteRef.value.focusTextarea();
 };
 
-const showid = ()=>{
-  console.log("storeNotes.notes", storeNotes.notes[0].id)
-}
 
 useWatchCharacters(newNote);
 

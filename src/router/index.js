@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ViewEditNote from '../views/ViewEditNote.vue'
+// import ViewEditNote from '../views/ViewEditNote.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -17,11 +17,11 @@ const router = createRouter({
       component: () => import("../views/ItemDetail.vue"),
       props: (route) => ({ id: route.params.id }),
     },
-    {
-      path: '/editNote/:id',
-      name: 'edit-note',
-      component:ViewEditNote
-    },
+    // {
+    //   path: '/editNote/:id',
+    //   name: 'edit-note',
+    //   component:ViewEditNote
+    // },
     {
       path: '/about',
       name: 'about',

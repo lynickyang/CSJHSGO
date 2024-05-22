@@ -38,7 +38,7 @@ export default {
     },
     deleteCheck(id){
       storeNotes.deleteNote(id);
-      console.log("刪除完成");
+      // console.log("刪除完成");
       this.hideModal();
     }
   },

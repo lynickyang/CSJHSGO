@@ -71,7 +71,7 @@ export const useStoreNotes = defineStore('storeNotes', {
     async deleteNote(idToDelete) {
       // console.log("觸發delete",idToDelete)
       await deleteDoc(doc(collection(db,'products',this.setId,'message'), idToDelete));
-      console.log("deleteNote")
+      // console.log("deleteNote")
       this.getNotes();
     },
 
@@ -79,15 +79,15 @@ export const useStoreNotes = defineStore('storeNotes', {
       await updateDoc(doc(collection(db,'products',this.setId,'message'),id), {
         content
       });
-      console.log("updateNote")
+      // console.log("updateNote")
       this.getNotes();
     }
   },
   getters: {
     getNoteContent: (state) => {
-      console.log("觸發getNoteContent")
+      // console.log("觸發getNoteContent")
       return (id) => {
-        console.log("id:",id)
+        // console.log("id:",id)
         return state.notes.filter(note => note.id === id )[0].content
       }
     },

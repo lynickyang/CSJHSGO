@@ -17,14 +17,14 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <RouterLink
               class="nav-link text-light"
               aria-current="page"
               to="/about"
               >發展故事</RouterLink
             >
-          </li>
+          </li> -->
           <li class="nav-item">
             <RouterLink class="nav-link active text-light" to="/"
               >田野紀錄</RouterLink

@@ -101,11 +101,11 @@ export default {
   },
   methods: {
     showModal() {
-      console.log("開啟ＭＯＤＡＬ")
+      // console.log("開啟ＭＯＤＡＬ")
       this.modal.show();
     },
     hideModal() {
-      console.log("關閉ＭODLE")
+      // console.log("關閉ＭODLE")
       this.modal.hide();
     },
 
