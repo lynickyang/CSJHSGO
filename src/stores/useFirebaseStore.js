@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import {db} from '../js/firebase'
 
 import { collection, onSnapshot,getDocs,
-  deleteDoc,updateDoc,setDoc ,
+  deleteDoc,updateDoc,setDoc,doc
   } from "firebase/firestore";
 
 export const useFirebaseStore = defineStore('firebaseStore', {

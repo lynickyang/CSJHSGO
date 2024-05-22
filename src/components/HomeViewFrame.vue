@@ -14,7 +14,7 @@ function setId(id) {
 <template>
   <Slide />
 
-  <div class="container-xxl mt-5 mb-5">
+  <div class="container-xl mt-5 mb-5">
     <div class="row" pt-5>
       <div class="col-xl-4 col-md-6" v-for="item in useFBstore.products" :key="item.id">
         <div class="card mb-4">
